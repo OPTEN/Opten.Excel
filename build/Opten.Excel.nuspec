@@ -11,6 +11,9 @@
 		<iconUrl>http://www.opten.ch/nuget/logo.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<tags>opten</tags>
+		<dependencies>
+			<dependency id="EPPlus" version="4.5.3.1" />
+		</dependencies>
 	</metadata>
 	<files>
 		<file src="src\Opten.Excel\bin\Release\netstandard2.0\Opten.Excel.dll" target="lib\netstandard2.0" />

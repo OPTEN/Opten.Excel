@@ -56,7 +56,7 @@ Task("Pack")
 	.IsDependentOn("Restore-NuGet-Packages")
 	.Does(() =>
 {	
-	//ReplaceRegexInFiles("../build/Opten.Excel.nuspec", @"(\d+)\.(\d+)\.(\d+)(.(\d+))?", version);
+	ReplaceRegexInFiles("../build/Opten.Excel.nuspec", @"\$version\$", version);
 
     DotNetCorePack("../src/Opten.Excel/Opten.Excel.csproj", new DotNetCorePackSettings
 	{
