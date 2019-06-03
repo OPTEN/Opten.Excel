@@ -31,28 +31,28 @@ namespace Opten.Excel.Read
 		/// <summary>
 		/// Dethermines if the worksheet has a header.
 		/// </summary>
-		protected readonly bool HasHeader;
+		protected readonly bool Header;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ReadExcelBase{TOutput}"/> class.
 		/// </summary>
 		/// <param name="path">The path.</param>
-		/// <param name="hasHeader">if set to <c>true</c> [has header].</param>
-		public ReadExcelBase(string path, bool hasHeader)
+		/// <param name="header">if set to <c>true</c> [has header].</param>
+		public ReadExcelBase(string path, bool header)
 		{
 			Path = path;
-			HasHeader = hasHeader;
+			Header = header;
 		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ReadExcelBase{TOutput}"/> class.
 		/// </summary>
 		/// <param name="stream">The stream.</param>
-		/// <param name="hasHeader">if set to <c>true</c> [has header].</param>
-		public ReadExcelBase(Stream stream, bool hasHeader)
+		/// <param name="header">if set to <c>true</c> [has header].</param>
+		public ReadExcelBase(Stream stream, bool header)
 		{
 			Stream = stream;
-			HasHeader = hasHeader;
+			Header = header;
 		}
 
 		/// <summary>
@@ -60,12 +60,12 @@ namespace Opten.Excel.Read
 		/// </summary>
 		/// <param name="path">The path.</param>
 		/// <param name="worksheet">The worksheet.</param>
-		/// <param name="hasHeader">if set to <c>true</c> [has header].</param>
-		public ReadExcelBase(string path, string worksheet, bool hasHeader)
+		/// <param name="header">if set to <c>true</c> [has header].</param>
+		public ReadExcelBase(string path, string worksheet, bool header)
 		{
 			Path = path;
 			Worksheet = worksheet;
-			HasHeader = hasHeader;
+			Header = header;
 		}
 
 		/// <summary>
@@ -73,12 +73,12 @@ namespace Opten.Excel.Read
 		/// </summary>
 		/// <param name="stream">The stream.</param>
 		/// <param name="worksheet">The worksheet.</param>
-		/// <param name="hasHeader">if set to <c>true</c> [has header].</param>
-		public ReadExcelBase(Stream stream, string worksheet, bool hasHeader)
+		/// <param name="header">if set to <c>true</c> [has header].</param>
+		public ReadExcelBase(Stream stream, string worksheet, bool header)
 		{
 			Stream = stream;
 			Worksheet = worksheet;
-			HasHeader = hasHeader;
+			Header = header;
 		}
 
 		/// <summary>
@@ -110,7 +110,8 @@ namespace Opten.Excel.Read
 
 					return package.GetDataTableFromExcel(
 						worksheet: this.Worksheet,
-						hasHeader: this.HasHeader);
+						startHeader: this.Header ? (int?)1 : null,
+						startBody: this.Header ? 2 : 1);
 				}
 			}
 			else
@@ -119,7 +120,8 @@ namespace Opten.Excel.Read
 				{
 					return package.GetDataTableFromExcel(
 						worksheet: this.Worksheet,
-						hasHeader: this.HasHeader);
+						startHeader: this.Header ? (int?)1 : null,
+						startBody: this.Header ? 2 : 1);
 				}
 			}
 		}
