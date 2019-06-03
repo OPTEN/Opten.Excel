@@ -37,8 +37,6 @@ Task("Version")
 
 	version = GitDescribe("../", false, GitDescribeStrategy.Tags, 0);
 		
-		version = "1.0.0";
-
 	PatchAssemblyInfo("../src/Opten.Excel/Properties/AssemblyInfo.cs", version);
 	FileWriteText(dest + File("Opten.Excel.variables.txt"), "version=" + version);
 });
