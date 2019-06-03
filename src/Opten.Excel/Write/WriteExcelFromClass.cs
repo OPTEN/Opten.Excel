@@ -103,7 +103,7 @@ namespace Opten.Excel.Write
 			DataTable data = this.Convert(
 				printHeaderIfEmpty: true);
 
-			return data.WriteDataTableIntoExcel(Worksheet);
+			return data.WriteDataTableToExcel(Worksheet);
 		}
 
 	}
