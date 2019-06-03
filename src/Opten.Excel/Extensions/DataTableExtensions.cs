@@ -10,25 +10,10 @@ namespace Opten.Excel.Extensions
 	public static class DataTableExtensions
 	{
 
-		/// <summary>
-		/// Gets the data table from an Excel.
-		/// </summary>
-		/// <param name="package">The package.</param>
-		/// <param name="worksheet">The worksheet.</param>
-		/// <param name="startBody">if set to <c>true</c> start row.</param>
-		/// <returns></returns>
-		public static DataTable GetDataTableFromExcel(this ExcelPackage package, string worksheet, int startBody)
-			=> package.GetDataTableFromExcel(worksheet, null, startBody);
+		public static DataTable GetDataTableFromExcel(this ExcelPackage package, string worksheet, int startBody, int? columns = null)
+			=> package.GetDataTableFromExcel(worksheet, null, startBody, columns);
 
-		/// <summary>
-		/// Gets the data table from an Excel.
-		/// </summary>
-		/// <param name="package">The package.</param>
-		/// <param name="worksheet">The worksheet.</param>
-		/// <param name="startHeader">if set to <c>true</c> start header.</param>
-		/// <param name="startBody">if set to <c>true</c> start row.</param>
-		/// <returns></returns>
-		public static DataTable GetDataTableFromExcel(this ExcelPackage package, string worksheet, int? startHeader, int? startBody)
+		public static DataTable GetDataTableFromExcel(this ExcelPackage package, string worksheet, int? startHeader, int? startBody, int? columns = null)
 		{
 			ExcelWorksheet ws = null;
 
@@ -43,14 +28,14 @@ namespace Opten.Excel.Extensions
 
 			using (DataTable dt = new DataTable())
 			{
-				foreach (ExcelRangeBase firstRowCell in ws.Cells[(startHeader ?? startBody).Value, 1, 1, ws.Dimension.End.Column])
+				foreach (ExcelRangeBase firstRowCell in ws.Cells[(startHeader ?? startBody).Value, 1, 1, columns ?? ws.Dimension.End.Column])
 				{
 					dt.Columns.Add(startHeader.HasValue ? firstRowCell.Text : string.Format("Column {0}", firstRowCell.Start.Column));
 				}
 
 				for (int rowNum = startBody.Value; rowNum <= ws.Dimension.End.Row; rowNum++)
 				{
-					ExcelRangeBase wsRow = ws.Cells[rowNum, 1, rowNum, ws.Dimension.End.Column];
+					ExcelRangeBase wsRow = ws.Cells[rowNum, 1, rowNum, columns ?? ws.Dimension.End.Column];
 
 					// Only rows with text
 					if (wsRow.Any() && wsRow.Any(o => string.IsNullOrWhiteSpace(o.Text) == false))
