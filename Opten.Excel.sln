@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Opten.Excel", "src\Opten.Excel\Opten.Excel.csproj", "{68181BF0-B1DF-494F-8F69-4C1C4743910E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F14F7D13-F6C5-4ED6-9CD2-FEB519282E08}"
+	ProjectSection(SolutionItems) = preProject
+		build\build.cake = build\build.cake
+		build\build.ps1 = build\build.ps1
+		build\Opten.Excel.nuspec = build\Opten.Excel.nuspec
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ACA5789A-97E0-494B-848E-BE8910A8A7CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68181BF0-B1DF-494F-8F69-4C1C4743910E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68181BF0-B1DF-494F-8F69-4C1C4743910E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68181BF0-B1DF-494F-8F69-4C1C4743910E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68181BF0-B1DF-494F-8F69-4C1C4743910E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{68181BF0-B1DF-494F-8F69-4C1C4743910E} = {ACA5789A-97E0-494B-848E-BE8910A8A7CB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A7B670E-DF6E-46C6-A2C5-5BC1949FE98C}
+	EndGlobalSection
+EndGlobal

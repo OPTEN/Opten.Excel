@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>Opten.Excel</id>
+		<version>$version$</version>
+		<title>Opten.Excel</title>
+		<authors>OPTEN AG</authors>
+		<owners>OPTEN AG</owners>
+		<projectUrl>https://github.com/OPTEN/Opten.Excel</projectUrl>
+		<description><![CDATA[OPTEN Excel]]></description>
+		<iconUrl>http://www.opten.ch/nuget/logo.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<tags>opten</tags>
+	</metadata>
+	<files>
+		<file src="src\Opten.Excel\bin\Release\netstandard2.0\Opten.Excel.dll" target="lib\netstandard2.0" />
+		<file src="src\Opten.Excel\bin\Release\netstandard2.0\Opten.Excel.pdb" target="lib\netstandard2.0" />
+	</files>
+</package>
